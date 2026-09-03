@@ -18,3 +18,5 @@ secrets-demo/            Sealed-Secrets-Beispiel (ohne Klartext!)
 
 Jede*r Teilnehmer*in arbeitet in einer **eigenen Kopie** dieses Repos
 (GitHub → "Use this template" → eigener Account, Sichtbarkeit *Public*).
+
+# test
