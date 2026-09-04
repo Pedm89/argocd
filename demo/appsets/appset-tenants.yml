@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tenants
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/Pedm89/kaffee-shop-gitops
+        revision: master
+        directories:
+          - path: demo/tenants/*/*      # tenant/env-Struktur
+  template:
+    metadata:
+      name: "{{path[2]}}-{{path[3]}}"                 # z. B. tschibo-prod
+      labels:
+        layer: "tenants"
+        tenant: "{{path[2]}}"
+        environment: "{{path[3]}}"
+    spec:
+      project: kaffee-shops
+      source:
+        repoURL: https://github.com/Pedm89/kaffee-shop-gitops
+        targetRevision: master
+        path: "{{path}}"                              # direktes Helm-Chart
+        helm:
+          releaseName: "{{path[2]}}-{{path[3]}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{path[2]}}-{{path[3]}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
