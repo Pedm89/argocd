@@ -8,7 +8,7 @@ metadata:
 spec:
   description: Project for Coffee-Shops
   sourceRepos:
-    - https://github.com/OutOfContext/kaffee-shop-gitops
+    - https://github.com/Pedm89/kaffee-shop-gitops
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc
