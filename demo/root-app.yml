@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Pedm89/argocd.git
+    repoURL: https://github.com/Pedm89/argocd
     targetRevision: master
     path: demo/appsets
   destination:

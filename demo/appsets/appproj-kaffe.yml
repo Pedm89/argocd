@@ -8,7 +8,7 @@ metadata:
 spec:
   description: Project for Coffee-Shops
   sourceRepos:
-    - https://github.com/Pedm89/kaffee-shop-gitops
+    - https://github.com/Pedm89/argocd
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc

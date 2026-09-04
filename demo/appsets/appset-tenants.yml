@@ -8,7 +8,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/Pedm89/kaffee-shop-gitops
+        repoURL: https://github.com/Pedm89/argocd
         revision: master
         directories:
           - path: demo/tenants/*/*      # tenant/env-Struktur
@@ -22,7 +22,7 @@ spec:
     spec:
       project: kaffee-shops
       source:
-        repoURL: https://github.com/Pedm89/kaffee-shop-gitops
+        repoURL: https://github.com/Pedm89/argocd
         targetRevision: master
         path: "{{path}}"                              # direktes Helm-Chart
         helm:
